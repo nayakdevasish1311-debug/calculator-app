@@ -23,7 +23,7 @@ jobs:
 
       - name: Run Automated Tests
         run: |
-          pytest test_calculator.py
+          python -m pytest test_calculator.py
 
   build-and-push:
     needs: continuous-integration
@@ -43,5 +43,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: YOUR_devasish1311/calculator-app:v1
-
+          tags: ${{ secrets.DOCKER_USERNAME }}/calculator-app:v1
